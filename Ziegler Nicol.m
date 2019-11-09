@@ -7,8 +7,9 @@ sys=tf(num,den);
 plot(t,y,'LineWidth',2); grid on; xlabel('Time(s)'); ylabel('Amplitude');
 
 hold on;
-K=34.65;
-T=4.143;
+[GM, PM, Pcf, Gcf] = margin(Gp);
+K = GM; % gain at which sys is marginally stable
+T = 2*pi/Pcf; % time period of sustained oscillations
 
 %P-Controller
 Kp=0.5*K;
